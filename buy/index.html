@@ -114,10 +114,31 @@
 
         <section class="band closing" aria-labelledby="closing-heading">
           <h2 id="closing-heading">Ready to take the CEO’s seat?</h2>
+          <div class="closing-copy">
+            <p>You may not feel ready. That’s the point.</p>
+            <p>
+              Running a company means making consequential decisions before you
+              have all the information you want. You won’t get to wait for
+              certainty.
+            </p>
+            <p class="closing-emphasis">The habit is learning to act anyway.</p>
+          </div>
           <p class="cta">
             <a class="button" href="https://square.link/u/y8WhDyQz">Start the Simulation — $20</a>
           </p>
           <p class="note">Your first briefing will be mailed after checkout.</p>
+          <div class="feedback" aria-labelledby="feedback-heading">
+            <h3 class="feedback-heading" id="feedback-heading">Do you have Questions?</h3>
+            <p class="feedback-note">
+              Questions never end.<br>
+              You will always have to act under uncertainty, but if you must…
+            </p>
+            <p class="feedback-action">
+              <button type="button" class="button button-small" id="feedback-open">
+                Ask a question
+              </button>
+            </p>
+          </div>
         </section>
       </main>
 
@@ -125,5 +146,54 @@
         <p class="wordmark">OPAQUE</p>
       </footer>
     </div>
+    <script>
+      (function () {
+        var formId = "RGy9a9";
+        var widgetSrc = "https://tally.so/widgets/embed.js";
+        var pendingOpen = false;
+
+        var openFeedback = function () {
+          if (typeof Tally === "undefined") {
+            pendingOpen = true;
+            return;
+          }
+          Tally.openPopup(formId, {
+            layout: "modal",
+            overlay: true,
+            hideTitle: true,
+            onOpen: function () {
+              if (window.posthog) {
+                posthog.capture("opaque_feedback_form_viewed");
+              }
+            },
+            onSubmit: function () {
+              if (window.posthog) {
+                posthog.capture("opaque_feedback_submitted");
+              }
+            }
+          });
+        };
+
+        var onWidgetReady = function () {
+          if (pendingOpen) {
+            pendingOpen = false;
+            openFeedback();
+          }
+        };
+
+        if (!document.querySelector('script[src="' + widgetSrc + '"]')) {
+          var script = document.createElement("script");
+          script.src = widgetSrc;
+          script.onload = onWidgetReady;
+          script.onerror = onWidgetReady;
+          document.body.appendChild(script);
+        }
+
+        var openButton = document.getElementById("feedback-open");
+        if (openButton) {
+          openButton.addEventListener("click", openFeedback);
+        }
+      })();
+    </script>
   </body>
 </html>
