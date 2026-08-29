@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opaque — Get Part I Free</title>
+    <meta
+      name="description"
+      content="Request a free physical copy of Part I of Opaque, an interactive business simulation delivered through the mail. No credit card required."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Opaque — Get Part I Free">
+    <meta
+      property="og:description"
+      content="Request a free physical copy of Part I of Opaque, an interactive business simulation delivered through the mail. No credit card required."
+    >
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Opaque — Get Part I Free">
+    <meta
+      name="twitter:description"
+      content="Request a free physical copy of Part I of Opaque, an interactive business simulation delivered through the mail. No credit card required."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../posthog.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <p class="wordmark">OPAQUE</p>
+        <h1>Practice the decisions before the stakes are real.</h1>
+        <p class="dek">
+          Opaque is an interactive business simulation delivered through the mail.
+        </p>
+      </header>
+
+      <main>
+        <section class="intro" aria-label="Get Part I free">
+          <p>
+            You step into the role of CEO, face a consequential business
+            decision with incomplete information, and decide what to do.
+          </p>
+          <p>What happens next depends on the decision you make.</p>
+          <p class="cta">
+            <a class="button" href="https://tally.so/r/WOkRLP">Get Part I Free</a>
+          </p>
+          <p class="note">
+            Free. No credit card required. Delivered by mail.
+          </p>
+        </section>
+
+        <section class="band" aria-labelledby="situation-heading">
+          <h2 id="situation-heading">You are the CEO.</h2>
+          <p>Your largest competitor just made its product free.</p>
+          <p>
+            Tomorrow morning, your employees, investors, and customers will
+            expect an answer.
+          </p>
+          <p>What do you do?</p>
+          <p class="cta">
+            <a class="button" href="https://tally.so/r/WOkRLP">Get Part I Free</a>
+          </p>
+        </section>
+
+        <section class="band" aria-labelledby="how-heading">
+          <h2 id="how-heading">How It Works</h2>
+          <div class="step">
+            <h3>1. Receive the situation</h3>
+            <p>We mail Part I of Opaque directly to you.</p>
+          </div>
+          <div class="step">
+            <h3>2. Make the call</h3>
+            <p>
+              Read the briefing, weigh the tradeoffs, and decide what you
+              would do.
+            </p>
+          </div>
+          <div class="step">
+            <h3>3. Live with the consequences</h3>
+            <p>
+              Submit your recommendation and discover what follows from your
+              decision.
+            </p>
+          </div>
+        </section>
+
+        <section class="band" aria-labelledby="why-heading">
+          <h2 id="why-heading">Why Opaque</h2>
+          <p>Most business lessons are taught with hindsight.</p>
+          <p class="statement">Opaque removes it.</p>
+          <p>You make the decision before knowing what happens next.</p>
+          <p>
+            The goal is not to guess the “correct” answer. It is to practice
+            making better decisions when the future is uncertain.
+          </p>
+        </section>
+
+        <section class="band" aria-label="Philosophy">
+          <blockquote class="philosophy">
+            <p>The future is opaque. Your job isn’t to predict it.</p>
+            <p>
+              Your job is to make the best decision possible with the
+              information available today.
+            </p>
+          </blockquote>
+        </section>
+
+        <section class="band" aria-labelledby="offer-heading">
+          <h2 id="offer-heading">What You Get</h2>
+          <ul class="offer">
+            <li>Part I of an interactive business simulation</li>
+            <li>A physical briefing delivered through the mail</li>
+            <li>A consequential decision with no obvious correct answer</li>
+            <li>Approximately 15–20 minutes to experience it</li>
+            <li>A story that responds to the decision you make</li>
+          </ul>
+        </section>
+
+        <section class="band closing" aria-labelledby="closing-heading">
+          <h2 id="closing-heading">Ready to take the CEO’s seat?</h2>
+          <div class="closing-copy">
+            <p>You may not feel ready. That’s the point.</p>
+            <p>
+              Running a company means making consequential decisions before you
+              have all the information you want. You won’t get to wait for
+              certainty.
+            </p>
+            <p class="closing-emphasis">The habit is learning to act anyway.</p>
+          </div>
+          <p class="cta">
+            <a class="button" href="https://tally.so/r/WOkRLP">Get Part I Free</a>
+          </p>
+          <p class="note">
+            Free. No credit card required. We’ll mail your first briefing to you.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <p class="wordmark">OPAQUE</p>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        var tallyUrl = "https://tally.so/r/WOkRLP";
+        var search = window.location.search;
+        var ctas = document.querySelectorAll('a[href^="' + tallyUrl + '"]');
+
+        if (window.posthog) {
+          posthog.capture("opaque_lead_page_viewed");
+        }
+
+        for (var i = 0; i < ctas.length; i++) {
+          if (search) {
+            ctas[i].href = tallyUrl + search;
+          }
+
+          ctas[i].addEventListener("click", function () {
+            if (window.posthog) {
+              posthog.capture("opaque_free_part1_cta_clicked");
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
